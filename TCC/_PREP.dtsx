@@ -11,12 +11,29 @@
   DTS:LocaleID="1046"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{0AD10DC2-2D43-4DFC-A575-11B2EBF5A7D7}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{39A66650-05A3-459C-8477-9AB9D80965C5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create Dim_City"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{DA454A5F-8783-48D9-A97B-F96AA951F8D7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Dim_City"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8A18BE7F-B01B-4295-84BF-C062DD9FBF17}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;GO&#xA;  IF NOT EXISTS (&#xA;    SELECT&#xA;      1&#xA;    FROM&#xA;      sys.tables&#xA;    WHERE&#xA;      name = 'DIM_CITY'&#xA;  ) BEGIN CREATE TABLE DIM_CITY(&#xA;&#x9;PK_CITY INT NOT NULL identity PRIMARY KEY&#xA;&#x9;,DESC_CITY VARCHAR(50) NOT NULL&#xA;&#x9;,START_DATE DATETIME DEFAULT GETDATE()&#xA;&#x9;,END_DATE DATETIME NULL&#xA;)ON [PRIMARY]&#xA;ALTER TABLE&#xA;  DIM_CITY&#xA;SET&#xA;  (LOCK_ESCALATION = TABLE)&#xA;END&#xA;GO&#xA;  COMMIT TRUNCATE TABLE DIM_CITY" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Create Dim_Employer"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -35,6 +52,57 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Create Dim_FTP"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{1B930565-B711-4EA6-AE37-8631D33C2BC5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Dim_FTP"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8A18BE7F-B01B-4295-84BF-C062DD9FBF17}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;GO&#xA;  IF NOT EXISTS (&#xA;    SELECT&#xA;      1&#xA;    FROM&#xA;      sys.tables&#xA;    WHERE&#xA;      name = 'DIM_FTP'&#xA;  ) BEGIN CREATE TABLE DIM_FTP(&#xA;&#x9;PK_FTP INT NOT NULL identity PRIMARY KEY&#xA;&#x9;,DESC_FTP VARCHAR(1) NOT NULL&#xA;&#x9;,START_DATE DATETIME DEFAULT GETDATE()&#xA;&#x9;,END_DATE DATETIME NULL&#xA;)ON [PRIMARY]&#xA;ALTER TABLE&#xA;  DIM_FTP&#xA;SET&#xA;  (LOCK_ESCALATION = TABLE)&#xA;END&#xA;GO&#xA;  COMMIT TRUNCATE TABLE DIM_FTP" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Dim_Job"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{4C28EC68-C8C0-464A-839C-40F60C3456B6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Dim_Job"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8A18BE7F-B01B-4295-84BF-C062DD9FBF17}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;GO&#xA;  IF NOT EXISTS (&#xA;    SELECT&#xA;      1&#xA;    FROM&#xA;      sys.tables&#xA;    WHERE&#xA;      name = 'DIM_JOB'&#xA;  ) BEGIN CREATE TABLE DIM_JOB(&#xA;&#x9;PK_JOB INT NOT NULL identity PRIMARY KEY&#xA;&#x9;,DESC_JOB VARCHAR(50) NOT NULL&#xA;&#x9;,START_DATE DATETIME DEFAULT GETDATE()&#xA;&#x9;,END_DATE DATETIME NULL&#xA;)ON [PRIMARY]&#xA;ALTER TABLE&#xA;  DIM_JOB&#xA;SET&#xA;  (LOCK_ESCALATION = TABLE)&#xA;END&#xA;GO&#xA;  COMMIT TRUNCATE TABLE DIM_JOB" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Dim_Prevailing"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{98B61C30-3AD1-4961-947F-AE6A873853F0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Dim_Prevailing"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8A18BE7F-B01B-4295-84BF-C062DD9FBF17}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;GO&#xA;  IF NOT EXISTS (&#xA;    SELECT&#xA;      1&#xA;    FROM&#xA;      sys.tables&#xA;    WHERE&#xA;      name = 'DIM_PREVAILING'&#xA;  ) BEGIN CREATE TABLE DIM_PREVAILING(&#xA;&#x9;PK_PREVAILING INT NOT NULL identity PRIMARY KEY&#xA;&#x9;,DESC_PREVAILING VARCHAR(50) NOT NULL&#xA;&#x9;,START_DATE DATETIME DEFAULT GETDATE()&#xA;&#x9;,END_DATE DATETIME NULL&#xA;)ON [PRIMARY]&#xA;ALTER TABLE&#xA;  DIM_PREVAILING&#xA;SET&#xA;  (LOCK_ESCALATION = TABLE)&#xA;END&#xA;GO&#xA;  COMMIT TRUNCATE TABLE DIM_PREVAILING" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Create Dim_Social"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarefa Executar SQL"
@@ -48,7 +116,41 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{8A18BE7F-B01B-4295-84BF-C062DD9FBF17}"
-          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;GO&#xA;  IF NOT EXISTS (&#xA;    SELECT&#xA;      1&#xA;    FROM&#xA;      sys.tables&#xA;    WHERE&#xA;      name = 'DIM_SOCIAL'&#xA;  ) BEGIN CREATE TABLE DIM_SOCIAL(&#xA;&#x9;PK_STATUS INT NOT NULL identity PRIMARY KEY&#xA;&#x9;,DESC_SOCIAL VARCHAR(50) NOT NULL&#xA;&#x9;,START_DATE DATETIME DEFAULT GETDATE()&#xA;&#x9;,END_DATE DATETIME NULL&#xA;)ON [PRIMARY]&#xA;ALTER TABLE&#xA;  DIM_SOCIAL&#xA;SET&#xA;  (LOCK_ESCALATION = TABLE)&#xA;END&#xA;GO&#xA;  COMMIT TRUNCATE TABLE DIM_SOCIAL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;GO&#xA;  IF NOT EXISTS (&#xA;    SELECT&#xA;      1&#xA;    FROM&#xA;      sys.tables&#xA;    WHERE&#xA;      name = 'DIM_SOCIAL'&#xA;  ) BEGIN CREATE TABLE DIM_SOCIAL(&#xA;&#x9;PK_SOCIAL INT NOT NULL identity PRIMARY KEY&#xA;&#x9;,DESC_SOCIAL VARCHAR(50) NOT NULL&#xA;&#x9;,START_DATE DATETIME DEFAULT GETDATE()&#xA;&#x9;,END_DATE DATETIME NULL&#xA;)ON [PRIMARY]&#xA;ALTER TABLE&#xA;  DIM_SOCIAL&#xA;SET&#xA;  (LOCK_ESCALATION = TABLE)&#xA;END&#xA;GO&#xA;  COMMIT TRUNCATE TABLE DIM_SOCIAL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Dim_State"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{4F514E89-6C74-4045-BB1C-810936E89283}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Dim_State"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8A18BE7F-B01B-4295-84BF-C062DD9FBF17}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;GO&#xA;  IF NOT EXISTS (&#xA;    SELECT&#xA;      1&#xA;    FROM&#xA;      sys.tables&#xA;    WHERE&#xA;      name = 'DIM_STATE'&#xA;  ) BEGIN CREATE TABLE DIM_STATE(&#xA;&#x9;PK_STATE INT NOT NULL identity PRIMARY KEY&#xA;&#x9;,DESC_STATE VARCHAR(50) NOT NULL&#xA;&#x9;,START_DATE DATETIME DEFAULT GETDATE()&#xA;&#x9;,END_DATE DATETIME NULL&#xA;)ON [PRIMARY]&#xA;ALTER TABLE&#xA;  DIM_STATE&#xA;SET&#xA;  (LOCK_ESCALATION = TABLE)&#xA;END&#xA;GO&#xA;  COMMIT TRUNCATE TABLE DIM_STATE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Dim_State_Full"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{F15297DF-1161-4A32-B32D-E7D651EAD9A3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Dim_State_Full"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8A18BE7F-B01B-4295-84BF-C062DD9FBF17}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;GO&#xA;  IF NOT EXISTS (&#xA;    SELECT&#xA;      1&#xA;    FROM&#xA;      sys.tables&#xA;    WHERE&#xA;      name = 'DIM_STATE_FULL'&#xA;  ) BEGIN CREATE TABLE DIM_STATE_FULL(&#xA;&#x9;PK_STATE_FULL INT NOT NULL identity PRIMARY KEY&#xA;&#x9;,DESC_STATE_FULL VARCHAR(50) NOT NULL&#xA;&#x9;,START_DATE DATETIME DEFAULT GETDATE()&#xA;&#x9;,END_DATE DATETIME NULL&#xA;)ON [PRIMARY]&#xA;ALTER TABLE&#xA;  DIM_STATE_FULL&#xA;SET&#xA;  (LOCK_ESCALATION = TABLE)&#xA;END&#xA;GO&#xA;  COMMIT TRUNCATE TABLE DIM_STATE_FULL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -66,6 +168,23 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{8A18BE7F-B01B-4295-84BF-C062DD9FBF17}"
           SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;GO&#xA;  IF NOT EXISTS (&#xA;    SELECT&#xA;      1&#xA;    FROM&#xA;      sys.tables&#xA;    WHERE&#xA;      name = 'DIM_STATUS'&#xA;  ) BEGIN CREATE TABLE DIM_STATUS(&#xA;&#x9;PK_STATUS INT NOT NULL identity PRIMARY KEY&#xA;&#x9;,DESC_STATUS VARCHAR(50) NOT NULL&#xA;&#x9;,START_DATE DATETIME DEFAULT GETDATE()&#xA;&#x9;,END_DATE DATETIME NULL&#xA;)ON [PRIMARY]&#xA;ALTER TABLE&#xA;  DIM_STATUS&#xA;SET&#xA;  (LOCK_ESCALATION = TABLE)&#xA;END&#xA;GO&#xA;  COMMIT TRUNCATE TABLE DIM_STATUS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Dim_Year"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{26C22B87-BAFD-4D59-8610-751B117DE980}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Dim_Year"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8A18BE7F-B01B-4295-84BF-C062DD9FBF17}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;GO&#xA;  IF NOT EXISTS (&#xA;    SELECT&#xA;      1&#xA;    FROM&#xA;      sys.tables&#xA;    WHERE&#xA;      name = 'DIM_YEAR'&#xA;  ) BEGIN CREATE TABLE DIM_YEAR(&#xA;&#x9;PK_YEAR INT NOT NULL identity PRIMARY KEY&#xA;&#x9;,DESC_YEAR VARCHAR(50) NOT NULL&#xA;&#x9;,START_DATE DATETIME DEFAULT GETDATE()&#xA;&#x9;,END_DATE DATETIME NULL&#xA;)ON [PRIMARY]&#xA;ALTER TABLE&#xA;  DIM_YEAR&#xA;SET&#xA;  (LOCK_ESCALATION = TABLE)&#xA;END&#xA;GO&#xA;  COMMIT TRUNCATE TABLE DIM_YEAR" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -111,6 +230,54 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restrição 2"
       DTS:To="Package\Create Dim_Social" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{9C10DBAD-00B4-44CB-A33B-EE5EC639BC75}"
+      DTS:From="Package\Create Dim_Social"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 3"
+      DTS:To="Package\Create Dim_Job" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{5E281609-A08D-4230-BED4-F590CE43FC63}"
+      DTS:From="Package\Create Dim_Job"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 4"
+      DTS:To="Package\Create Dim_FTP" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{59D8EA20-4DC8-4E00-914D-DF7D18F3E8FD}"
+      DTS:From="Package\Create Dim_FTP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 5"
+      DTS:To="Package\Create Dim_Prevailing" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{54B6E0BF-B738-4084-87A4-7FA95A1830ED}"
+      DTS:From="Package\Create Dim_Prevailing"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 6"
+      DTS:To="Package\Create Dim_City" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{7683FCE3-FB4B-4D3E-A4A3-2D490BD7D945}"
+      DTS:From="Package\Create Dim_City"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 7"
+      DTS:To="Package\Create Dim_State" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{A119B60F-D9CC-4FA8-8ABB-97A99B548E94}"
+      DTS:From="Package\Create Dim_State"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 8"
+      DTS:To="Package\Create Dim_State_Full" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
@@ -123,15 +290,27 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="187,42"
           Id="Package\Create Dim_Employer"
           TopLeft="141,220" />
         <NodeLayout
+          Size="161,42"
+          Id="Package\Create Dim_FTP"
+          TopLeft="146,459" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Create Dim_Job"
+          TopLeft="151,375" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Create Dim_Prevailing"
+          TopLeft="130,548" />
+        <NodeLayout
           Size="171,42"
           Id="Package\Create Dim_Social"
-          TopLeft="150,310" />
+          TopLeft="146,297" />
         <NodeLayout
           Size="172,42"
           Id="Package\Create Dim_Status"
@@ -140,6 +319,10 @@
           Size="144,42"
           Id="Package\Create Stage"
           TopLeft="166,59" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Create Dim_City"
+          TopLeft="138,634" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restrição]"
           TopLeft="236.5,101">
@@ -186,18 +369,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restrição 2]"
-          TopLeft="235,262">
+          TopLeft="233,262">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48"
+              EndConnector="0,35"
               Start="0,0"
-              End="0,40.5">
+              End="0,27.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.5" />
+                    End="0,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -206,6 +389,150 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 3]"
+          TopLeft="230.75,339">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 4]"
+          TopLeft="228.25,417">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 5]"
+          TopLeft="225.5,501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 6]"
+          TopLeft="221.25,590">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Create Dim_State"
+          TopLeft="135,714" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 7]"
+          TopLeft="218,676">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Create Dim_State_Full"
+          TopLeft="129,790" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 8]"
+          TopLeft="221,756">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Create Dim_Year"
+          TopLeft="135,861" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
